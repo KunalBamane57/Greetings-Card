@@ -1,0 +1,97 @@
+.main {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  padding: 24px; position: relative; overflow: hidden;
+}
+
+/* Animated orbs */
+.bgOrbs { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.orb1 {
+  position: absolute; width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,0.18) 0%, transparent 70%);
+  top: -200px; left: -200px; animation: orbFloat 12s ease-in-out infinite;
+}
+.orb2 {
+  position: absolute; width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(236,72,153,0.14) 0%, transparent 70%);
+  bottom: -150px; right: -150px; animation: orbFloat 9s ease-in-out infinite reverse;
+}
+.orb3 {
+  position: absolute; width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  animation: orbFloat 15s ease-in-out infinite 3s;
+}
+@keyframes orbFloat {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(30px,-20px) scale(1.05); }
+  66% { transform: translate(-20px,30px) scale(0.95); }
+}
+
+.card {
+  position: relative; z-index: 1;
+  background: rgba(18,21,42,0.8);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 28px; padding: 40px 36px;
+  width: 100%; max-width: 420px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 60px rgba(139,92,246,0.1);
+}
+
+.brand { text-align: center; margin-bottom: 32px; }
+.brandIcon {
+  font-size: 44px; display: block; margin-bottom: 10px;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+.brandName {
+  font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900;
+  background: linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b);
+  background-size: 200%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+  margin-bottom: 6px;
+}
+@keyframes gradientShift { 0%,100%{background-position:0%} 50%{background-position:100%} }
+.brandTagline { font-size: 14px; color: #64748b; }
+
+.authOptions { display: flex; flex-direction: column; gap: 12px; }
+.socialBtn {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  width: 100%; padding: 14px 20px;
+  background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: 999px; color: #f1f5f9; font-size: 15px; font-weight: 600;
+  cursor: pointer; font-family: 'Inter',sans-serif;
+  transition: all 0.22s; min-height: 52px;
+}
+.socialBtn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.22); transform: translateY(-2px); }
+.socialBtn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.fullBtn { width: 100%; justify-content: center; }
+
+.emailForm { display: flex; flex-direction: column; gap: 14px; }
+.backBtn {
+  background: none; border: none; color: #94a3b8; font-size: 14px; cursor: pointer;
+  text-align: left; padding: 0; transition: color 0.2s;
+}
+.backBtn:hover { color: #f1f5f9; }
+.formTitle { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:#f1f5f9; text-align:center; }
+.field { display:flex; flex-direction:column; gap:6px; }
+.label { font-size:13px; font-weight:500; color:#94a3b8; }
+.error {
+  background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3);
+  border-radius:8px; padding:10px 14px; font-size:13px; color:#f87171;
+}
+
+.spin {
+  width:18px; height:18px; border:2px solid rgba(255,255,255,0.3);
+  border-top-color:#fff; border-radius:50%; animation:spin 0.7s linear infinite; display:inline-block;
+}
+@keyframes spin { to{transform:rotate(360deg)} }
+
+.terms { font-size:11px; color:#334155; text-align:center; margin-top:20px; line-height:1.5; }
+.terms span { color:#475569; text-decoration:underline; cursor:pointer; }
+
+@media (max-width:480px) {
+  .card { padding:32px 24px; border-radius:20px; }
+  .brandName { font-size:30px; }
+}

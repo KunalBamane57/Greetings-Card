@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex; gap: 8px; overflow-x: auto;
+  padding: 4px 0 10px; scrollbar-width: none;
+}
+.wrapper::-webkit-scrollbar { display: none; }
+
+.chip {
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.08);
+  border-radius: 999px;
+  color: #94a3b8; font-size: 13px; font-weight: 500;
+  padding: 8px 18px; cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  white-space: nowrap;
+}
+.chip:hover {
+  background: rgba(139,92,246,0.1);
+  border-color: rgba(139,92,246,0.4);
+  color: #c4b5fd;
+  transform: translateY(-1px);
+}
+.active {
+  background: linear-gradient(135deg,#8b5cf6,#ec4899) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(139,92,246,0.4);
+  transform: translateY(-1px);
+}
