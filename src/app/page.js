@@ -7,7 +7,7 @@ import styles from './page.module.css';
 export default function LoginPage() {
   const { isLoggedIn, user, login, loginAsGuest } = useApp();
   const router = useRouter();
-  const [mode, setMode] = useState('home'); // home | email | signup
+  const [mode, setMode] = useState('home');
   const [form, setForm] = useState({ name: '', email: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState('');
@@ -47,7 +47,6 @@ export default function LoginPage() {
 
   return (
     <main className={styles.main}>
-      {/* Animated Background */}
       <div className={styles.bgOrbs}>
         <div className={styles.orb1} />
         <div className={styles.orb2} />
@@ -55,7 +54,6 @@ export default function LoginPage() {
       </div>
 
       <div className={styles.card}>
-        {/* Brand */}
         <div className={styles.brand}>
           <div className={styles.brandIcon}>✨</div>
           <h1 className={styles.brandName}>Wishify</h1>
@@ -64,7 +62,6 @@ export default function LoginPage() {
 
         {mode === 'home' && (
           <div className={styles.authOptions}>
-            {/* Google */}
             <button
               id="login-google-btn"
               className={styles.socialBtn}
@@ -72,25 +69,23 @@ export default function LoginPage() {
               disabled={!!loading}
             >
               {loading === 'google' ? <span className={styles.spin} /> : (
-                <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.4 0 6.3 1.2 8.6 3.1l6.4-6.4C34.9 2.7 29.8.5 24 .5 14.8.5 6.9 6 3.2 13.9l7.5 5.8C12.5 13.4 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.2-.4-4.7H24v9h12.7c-.6 3-2.3 5.5-4.9 7.2l7.5 5.8C43.8 37.4 46.5 31.4 46.5 24.5z"/><path fill="#FBBC05" d="M10.7 28.3A14.5 14.5 0 0 1 9.5 24c0-1.5.3-3 .7-4.3L2.7 13.9A23.5 23.5 0 0 0 .5 24c0 3.8.9 7.3 2.2 10.5l8-6.2z"/><path fill="#34A853" d="M24 47.5c5.8 0 10.7-1.9 14.3-5.2l-7.5-5.8c-2 1.3-4.4 2-6.8 2-6.2 0-11.5-4-13.3-9.4l-8 6.1C6.9 42 14.8 47.5 24 47.5z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.4 0 6.3 1.2 8.6 3.1l6.4-6.4C34.9 2.7 29.8.5 24 .5 14.8.5 6.9 6 3.2 13.9l7.5 5.8C12.5 13.4 17.8 9.5 24 9.5z" /><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.2-.4-4.7H24v9h12.7c-.6 3-2.3 5.5-4.9 7.2l7.5 5.8C43.8 37.4 46.5 31.4 46.5 24.5z" /><path fill="#FBBC05" d="M10.7 28.3A14.5 14.5 0 0 1 9.5 24c0-1.5.3-3 .7-4.3L2.7 13.9A23.5 23.5 0 0 0 .5 24c0 3.8.9 7.3 2.2 10.5l8-6.2z" /><path fill="#34A853" d="M24 47.5c5.8 0 10.7-1.9 14.3-5.2l-7.5-5.8c-2 1.3-4.4 2-6.8 2-6.2 0-11.5-4-13.3-9.4l-8 6.1C6.9 42 14.8 47.5 24 47.5z" /></svg>
               )}
               <span>Continue with Google</span>
             </button>
 
             <div className="divider">or</div>
 
-            {/* Email */}
             <button
               id="login-email-btn"
               className={`btn btn-outline ${styles.fullBtn}`}
               onClick={() => setMode('email')}
               disabled={!!loading}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2" /><polyline points="2,4 12,13 22,4" /></svg>
               Continue with Email
             </button>
 
-            {/* Guest */}
             <button
               id="login-guest-btn"
               className={`btn btn-ghost ${styles.fullBtn}`}
@@ -98,7 +93,7 @@ export default function LoginPage() {
               disabled={!!loading}
             >
               {loading === 'guest' ? <span className={styles.spin} /> : (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
               )}
               Continue as Guest
             </button>
@@ -144,6 +139,11 @@ export default function LoginPage() {
           By continuing, you agree to our <span>Terms of Service</span> and <span>Privacy Policy</span>
         </p>
       </div>
+
+      <footer className={styles.footer}>
+        made by kunal❤️
+      </footer>
     </main>
   );
 }
+

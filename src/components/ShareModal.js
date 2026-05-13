@@ -49,19 +49,17 @@ export default function ShareModal({ onClose, onDownload, onShare, cardRef, temp
   return (
     <div className="modal-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className="modal-box" id="share-modal">
-        {/* Header */}
         <div className={styles.header}>
           <h2 className={styles.title}>Share Your Card</h2>
           <p className={styles.sub}>{templateName}</p>
           <button className={styles.closeBtn} onClick={onClose} id="share-close-btn" aria-label="Close">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
         </div>
 
         <div className={styles.body}>
-          {/* Social Platforms */}
           <p className={styles.sectionLabel}>Share on</p>
           <div className={styles.platforms}>
             {PLATFORMS.map((p) => (
@@ -76,7 +74,6 @@ export default function ShareModal({ onClose, onDownload, onShare, cardRef, temp
 
           <div className="divider">or</div>
 
-          {/* Action Buttons */}
           <div className={styles.actions}>
             <button
               className={`btn btn-primary ${styles.actionBtn}`}
@@ -87,7 +84,7 @@ export default function ShareModal({ onClose, onDownload, onShare, cardRef, temp
               {loading === 'share' ? (
                 <><span className={styles.spin} /> Sharing…</>
               ) : (
-                <><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share Card</>
+                <><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" /></svg> Share Card</>
               )}
             </button>
             <button
@@ -99,11 +96,11 @@ export default function ShareModal({ onClose, onDownload, onShare, cardRef, temp
               {loading === 'download' ? (
                 <><span className={styles.spin} /> Saving…</>
               ) : (
-                <><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PNG</>
+                <><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg> Download PNG</>
               )}
             </button>
             <button className={`btn btn-ghost ${styles.actionBtn}`} onClick={handleCopyLink} id="share-copy-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
               Copy Link
             </button>
           </div>

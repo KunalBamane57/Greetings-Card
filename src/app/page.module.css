@@ -95,3 +95,19 @@
   .card { padding:32px 24px; border-radius:20px; }
   .brandName { font-size:30px; }
 }
+
+.footer {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 400;
+  z-index: 10;
+  opacity: 0.6;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+

@@ -7,6 +7,7 @@ A full-featured Next.js web application that lets users create beautiful persona
 ## 🚀 Live Demo
 
 Run locally at: **http://localhost:3000**
+Deployed at: https://greetings-card-eta.vercel.app/home
 
 ---
 

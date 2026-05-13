@@ -18,12 +18,11 @@ export default function TemplateCard({ template, onPremiumClick, index = 0 }) {
     else router.push(`/editor/${template.id}`);
   };
 
-  /* 3-D tilt on mouse move */
   const handleMouseMove = (e) => {
     const rect = cardRef.current?.getBoundingClientRect();
     if (!rect) return;
-    const x = ((e.clientX - rect.left) / rect.width  - 0.5) * 18;
-    const y = ((e.clientY - rect.top)  / rect.height - 0.5) * -18;
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 18;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -18;
     setTilt({ x, y });
   };
 
@@ -58,28 +57,21 @@ export default function TemplateCard({ template, onPremiumClick, index = 0 }) {
         ...delayStyle,
       }}
     >
-      {/* Shine sweep */}
       <div className={styles.cardShine} />
 
-      {/* Premium glow ring */}
       {template.isPremium && <div className={styles.premiumRing} />}
 
-      {/* ── Background ── */}
       <div className={styles.bg} style={{ background: template.gradient }}>
 
-        {/* Pattern */}
         <div className={styles.pattern} style={{ backgroundImage: template.pattern, backgroundSize: template.patternSize || '20px 20px' }} />
 
-        {/* Animated background orbs */}
         <div className={styles.cardOrb} style={{ background: 'rgba(255,255,255,0.12)', top: '-30%', left: '-20%' }} />
         <div className={styles.cardOrb} style={{ background: 'rgba(255,255,255,0.08)', bottom: '-20%', right: '-10%', animationDelay: '-4s' }} />
 
-        {/* Emoji */}
         <div className={`${styles.emoji} ${styles[`emoji_${template.photoPosition?.replace('-', '_')}`]}`}>
           {template.emoji}
         </div>
 
-        {/* User Photo */}
         <div className={`${styles.photoOverlay} ${styles[`photo_${template.photoPosition?.replace('-', '_')}`]}`}>
           {user?.avatar ? (
             <img src={user.avatar} alt={user.name} className={styles.userPhoto} />
@@ -88,19 +80,17 @@ export default function TemplateCard({ template, onPremiumClick, index = 0 }) {
           )}
         </div>
 
-        {/* Name & Message */}
         <div className={`${styles.textOverlay} ${styles[`text_${template.textAlign}`]}`} style={{ color: template.textColor }}>
           <p className={styles.userName}>{user?.name || 'Your Name'}</p>
           <p className={styles.message}>{template.message}</p>
         </div>
 
-        {/* Premium lock overlay */}
         {isLocked && (
           <div className={styles.lockOverlay}>
             <div className={styles.lockIcon}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
             </div>
             <span className={styles.lockLabel}>Premium</span>
@@ -108,7 +98,6 @@ export default function TemplateCard({ template, onPremiumClick, index = 0 }) {
           </div>
         )}
 
-        {/* Use button on hover */}
         {!isLocked && isHovered && (
           <div className={styles.useOverlay}>
             <button className={`${styles.useBtn} btn btn-primary`}>
@@ -118,7 +107,6 @@ export default function TemplateCard({ template, onPremiumClick, index = 0 }) {
         )}
       </div>
 
-      {/* ── Footer ── */}
       <div className={styles.footer}>
         <div>
           <p className={styles.name}>{template.name}</p>

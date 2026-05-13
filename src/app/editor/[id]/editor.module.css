@@ -249,3 +249,19 @@
   .cardCanvas { max-width:100%; }
   .controlCard { padding:18px; }
 }
+
+.footer {
+  padding: 40px 0 32px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 400;
+  opacity: 0.4;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+

@@ -38,18 +38,17 @@ export default function ProfilePage() {
     if (!name.trim()) { setError('Please enter your name.'); return; }
     setLoading(true);
 
-    // Build avatar: uploaded photo > emoji canvas > null
     let finalAvatar = avatar;
     if (!finalAvatar && selectedEmoji) {
       const canvas = document.createElement('canvas');
       canvas.width = 200; canvas.height = 200;
       const ctx = canvas.getContext('2d');
-      const gradient = ctx.createRadialGradient(100,100,10,100,100,100);
-      gradient.addColorStop(0,'#8b5cf6'); gradient.addColorStop(1,'#ec4899');
+      const gradient = ctx.createRadialGradient(100, 100, 10, 100, 100, 100);
+      gradient.addColorStop(0, '#8b5cf6'); gradient.addColorStop(1, '#ec4899');
       ctx.fillStyle = gradient; ctx.beginPath();
-      ctx.arc(100,100,100,0,Math.PI*2); ctx.fill();
-      ctx.font = '100px serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
-      ctx.fillText(selectedEmoji,100,105);
+      ctx.arc(100, 100, 100, 0, Math.PI * 2); ctx.fill();
+      ctx.font = '100px serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(selectedEmoji, 100, 105);
       finalAvatar = canvas.toDataURL('image/png');
     }
 
@@ -58,7 +57,7 @@ export default function ProfilePage() {
     router.push('/home');
   };
 
-  const initials = name ? name.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0,2) : 'U';
+  const initials = name ? name.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2) : 'U';
 
   return (
     <main className={styles.main}>
@@ -72,7 +71,6 @@ export default function ProfilePage() {
           <p className={styles.subtitle}>Your name and photo will appear on every greeting card you create.</p>
         </div>
 
-        {/* Avatar Preview */}
         <div className={styles.avatarSection}>
           <div className={styles.avatarWrap} onClick={() => fileRef.current?.click()} id="profile-avatar-click" title="Click to upload photo">
             {avatar ? (
@@ -84,8 +82,8 @@ export default function ProfilePage() {
             )}
             <div className={styles.avatarOverlay}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-                <circle cx="12" cy="13" r="4"/>
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                <circle cx="12" cy="13" r="4" />
               </svg>
             </div>
           </div>
@@ -95,7 +93,6 @@ export default function ProfilePage() {
           </button>
         </div>
 
-        {/* Emoji Avatars */}
         <div className={styles.emojiSection}>
           <p className={styles.emojiLabel}>Or choose an avatar</p>
           <div className={styles.emojiGrid}>
@@ -109,7 +106,6 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        {/* Name Input */}
         <div className={styles.field}>
           <label className={styles.label} htmlFor="profile-name-input">Your Name</label>
           <input
@@ -141,6 +137,11 @@ export default function ProfilePage() {
           </button>
         )}
       </div>
+
+      <footer className={styles.footer}>
+        made by kunal❤️
+      </footer>
     </main>
   );
 }
+

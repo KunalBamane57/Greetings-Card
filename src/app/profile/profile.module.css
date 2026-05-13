@@ -80,3 +80,19 @@
   border-top-color:#fff; border-radius:50%; animation:spin 0.7s linear infinite; display:inline-block;
 }
 @keyframes spin { to{transform:rotate(360deg)} }
+
+.footer {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 400;
+  z-index: 10;
+  opacity: 0.6;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
