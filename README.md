@@ -137,3 +137,9 @@ npm start
 ## 📄 License
 
 MIT — Free to use for educational and personal projects.
+
+---
+
+Made by Kunal ❤️
+
+
